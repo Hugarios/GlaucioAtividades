@@ -1,4 +1,3 @@
-
 var pessoa = {
     nome: "Hugo",
     idade: 18,
@@ -49,22 +48,24 @@ var pessoa = {
 
   
   // Resposta item 5
+
   pessoa.comparaPessoa = function(outraPessoa) {
     return (this.nome === outraPessoa.nome && this.idade === outraPessoa.idade);
   }
   
+
   // Resposta item 6
   const outraPessoa = {
-    nome: "Maria",
-    idade: 30,
-    profissao: "Enfermeira",
+    nome: "Yan",
+    idade: 24,
+    profissao: "Arquiteto",
     endereco: {
-      logradouro: "Rua X",
-      bairro: "Bairro Y",
-      cidade: "Cidade Z",
-      cep: "54321-876"
+      logradouro: "Rua Josué Guedes Pereira",
+      bairro: "Bessa",
+      cidade: "João Pessoa",
+      cep: "58035-040"
     },
-    telefone: "(88) 88888-8888",
+    telefone: "(83) 98101-7618",
     obterDados: function() {
       let dados = "";
       for (let prop in this) {
@@ -83,7 +84,9 @@ var pessoa = {
     comparaPessoa: function(outraPessoa) {
       return (this.nome === outraPessoa.nome && this.idade === outraPessoa.idade);
     }
-  };
+  }
+
   
   // Resposta item 7
-  console.log(pessoa.comparaPessoa(outraPessoa)); // false, pois as pessoas têm nomes diferentes
+
+  console.log(pessoa.comparaPessoa(outraPessoa))
