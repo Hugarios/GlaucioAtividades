@@ -1,0 +1,89 @@
+
+var pessoa = {
+    nome: "Hugo",
+    idade: 18,
+    profissao: "Desenvolvedor",
+    endereco: {
+      logradouro: "Rua Josué Guedes Pereira",
+      bairro: "Bessa",
+      cidade: "João Pessoa",
+      cep: "58035-040"
+    }
+}
+  
+
+  // Resposta item 2
+
+  function mostrarDadosPessoais(pessoa) {
+    console.log("Nome: " + pessoa.nome);
+    console.log("Idade: " + pessoa.idade);
+    console.log("Profissão: " + pessoa.profissao);
+    console.log("Endereço: " + pessoa.endereco.logradouro + ", " + pessoa.endereco.bairro + ", " + pessoa.endereco.cidade + ", " + pessoa.endereco.cep);
+  }
+  
+  mostrarDadosPessoais(pessoa)
+
+  
+  // Resposta item 3
+
+  pessoa.telefone = "(83) 98174-1521"
+  
+  
+  // Resposta item 4
+
+  pessoa.obterDados = function() {
+    let dados = "";
+    for (let prop in this) {
+      if (typeof this[prop] !== "function") {
+        if (typeof this[prop] === "object") {
+          for (let subProp in this[prop]) {
+            dados += subProp.charAt(0).toUpperCase() + subProp.slice(1) + ": " + this[prop][subProp] + "\n";
+          }
+        } else {
+          dados += prop.charAt(0).toUpperCase() + prop.slice(1) + ": " + this[prop] + "\n";
+        }
+      }
+    }
+    return dados;
+  }
+
+  
+  // Resposta item 5
+  pessoa.comparaPessoa = function(outraPessoa) {
+    return (this.nome === outraPessoa.nome && this.idade === outraPessoa.idade);
+  }
+  
+  // Resposta item 6
+  const outraPessoa = {
+    nome: "Maria",
+    idade: 30,
+    profissao: "Enfermeira",
+    endereco: {
+      logradouro: "Rua X",
+      bairro: "Bairro Y",
+      cidade: "Cidade Z",
+      cep: "54321-876"
+    },
+    telefone: "(88) 88888-8888",
+    obterDados: function() {
+      let dados = "";
+      for (let prop in this) {
+        if (typeof this[prop] !== "function") {
+          if (typeof this[prop] === "object") {
+            for (let subProp in this[prop]) {
+              dados += subProp.charAt(0).toUpperCase() + subProp.slice(1) + ": " + this[prop][subProp] + "\n";
+            }
+          } else {
+            dados += prop.charAt(0).toUpperCase() + prop.slice(1) + ": " + this[prop] + "\n";
+          }
+        }
+      }
+      return dados;
+    },
+    comparaPessoa: function(outraPessoa) {
+      return (this.nome === outraPessoa.nome && this.idade === outraPessoa.idade);
+    }
+  };
+  
+  // Resposta item 7
+  console.log(pessoa.comparaPessoa(outraPessoa)); // false, pois as pessoas têm nomes diferentes
